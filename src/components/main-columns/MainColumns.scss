@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.main__columns {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.main__column {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: $nav-height;
+
+  &:first-child {
+    flex-grow: 1;
+
+    @media(min-width: $desktop-min-width) {
+      flex-grow: 0;
+    }
+  }
+  &:last-child {
+    display: none;
+
+    @media(min-width: $desktop-min-width) {
+      display: block;
+      flex-grow: 1;
+    }
+  }
+}
+
+.main__scroll {
+  box-sizing: border-box;
+  padding: 0 1.25rem;
+  max-width: $desktop-min-width;
+
+  @media(min-width: $desktop-min-width) {
+    height: 100%;
+    overflow-y: auto;
+  }
+}

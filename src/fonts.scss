@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Mono|PT+Sans:400,700|PT+Serif|Roboto');
+
+$bebas-woff-font-path: '/fonts/BebasNeue.woff';
+$bebas-woff2-font-path: '/fonts/BebasNeue.woff2';
+$bebas-ttf-font-path: '/fonts/BebasNeue.ttf';
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: url($bebas-woff2-font-path) format('woff2'), /* Super Modern Browsers */
+  url($bebas-woff-font-path) format('woff'), /* Pretty Modern Browsers */
+  url($bebas-ttf-font-path) format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}

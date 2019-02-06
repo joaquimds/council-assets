@@ -1,0 +1,271 @@
+@import "../../variables";
+
+.council {
+  min-width: 200px;
+}
+
+.council__loading {
+  color: $grey;
+  display: block;
+  font-family: PT Serif, serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.council__results {
+  align-items: center;
+  color: $dark;
+  display: flex;
+  flex-direction: row;
+  font-family: Roboto, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 1rem 0;
+
+  p, select {
+    color: $dark;
+    font-family: Roboto, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  p {
+    margin-right: 0.25rem;
+  }
+
+  select {
+    padding: 0.3rem;
+  }
+}
+
+.summary {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.summary__row {
+  margin: 0 auto 1rem auto;
+
+  @media(min-width: $desktop-min-width) {
+    margin-left: 0;
+  }
+}
+
+.summary__stats {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  @media(min-width: $desktop-min-width) {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .summary__label {
+    flex-shrink: 0;
+    margin: 0 0.75rem 0.5rem 0.75rem;
+  }
+}
+
+.summary__stat {
+  color: $red;
+  font-family: BebasNeue, sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.summary__label {
+  color: $grey;
+  font-family: PT Serif, serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.summary__response {
+  margin-bottom: 0.5rem;
+}
+
+.summary__share-buttons {
+  align-items: center;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: PT Sans, sans-serif;
+    margin: 0.5rem 0;
+    padding: 0;
+
+    &:hover,&:focus {
+      background-color: #ccc;
+    }
+  }
+
+  img {
+    display: block;
+    width: 32px;
+  }
+}
+
+.council__map {
+  height: 300px;
+  margin-bottom: 1rem;
+
+  @media(min-width: $desktop-min-width) {
+    display: none;
+  }
+}
+
+.places {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.places__place {
+  box-shadow: 0 0 5px 2px #ccc;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  &.places__place--focused {
+    background-color: #f7f7f7;
+  }
+}
+
+.places .place__details {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.place__detail-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.place__detail {
+  color: $grey;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+  margin-right: 1rem;
+  width: 100%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  label {
+    color: #aaa;
+    font-family: Roboto, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.place__stat {
+  color: $red;
+  font-family: BebasNeue, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.places__buttons {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+
+  a {
+    border: none;
+    cursor: pointer;
+    font-family: PT Sans, sans-serif;
+    font-size: 0.83rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:first-child {
+      background-color: $red;
+      color: white;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  @media(min-width: $desktop-min-width) {
+    flex-direction: row;
+  }
+
+  label {
+    color: #aaa;
+    font-family: Roboto, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.filters__filter {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+
+  select,option,input {
+    font-family: Roboto, sans-serif;
+  }
+
+  select,input {
+    padding: 0.3rem;
+  }
+}
+
+.filters__group {
+  display: flex;
+  flex-direction: row;
+
+  @media(min-width: $desktop-min-width) {
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+}
+
+.filters__search {
+  @media(min-width: $desktop-min-width) {
+    margin-right: 0.5rem;
+  }
+}
+
+.filters__sort {
+  margin-right: 0.5rem;
+}

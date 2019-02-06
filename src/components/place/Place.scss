@@ -1,0 +1,49 @@
+@import "../../variables";
+
+.back {
+  display: block;
+  margin-top: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  img {
+    width: 100%;
+  }
+}
+
+.place__content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.place .place__details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+.place .place__detail {
+  margin-bottom: 1rem;
+  margin-right: 0;
+}
+
+.place__buttons {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+
+  button {
+    background-color: #e4e4e4;
+    border: none;
+    color: $red;
+    cursor: pointer;
+    font-family: PT Sans, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    width: 100%;
+  }
+}
