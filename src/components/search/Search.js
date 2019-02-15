@@ -57,7 +57,7 @@ class Search extends Component {
 
     const items = this.state.suggestions.map(council => (
       <li key={council} className='search__suggestion'>
-        <button type='button' onClick={() => this.navigate(council)}>{council}</button>
+        <button type='button' onClick={() => this.chooseCouncil(council)}>{council}</button>
       </li>
     ))
 
@@ -66,6 +66,11 @@ class Search extends Component {
         {items}
       </ul>
     )
+  }
+
+  chooseCouncil (council) {
+    sendSearchEvent('local-authority-search', council)
+    this.navigate(council)
   }
 
   navigate (council) {
@@ -93,7 +98,7 @@ class Search extends Component {
 
     if (suggestions.length) {
       search = suggestions[0]
-      this.navigate(search)
+      this.chooseCouncil(search)
       return
     }
 
@@ -103,11 +108,7 @@ class Search extends Component {
     }
 
     try {
-      window.gtag('event', 'postcode-search', {
-        event_category: 'engagement',
-        event_label: search.toUpperCase()
-      })
-
+      sendSearchEvent('postcode-search', search.toUpperCase())
       search = await this.lookup(search)
       this.navigate(search)
     } catch (e) {
@@ -149,6 +150,17 @@ const isPostcode = (value) => {
   const postcodeRegex = /^[A-Z]{1,2}[0-9][0-9A-Z]?\s?[0-9][A-Z]{2}$/ig
   const matches = value.match(postcodeRegex)
   return matches && matches.length
+}
+
+const sendSearchEvent = (type, label) => {
+  window.gtag('event', type, {
+    event_category: 'engagement',
+    event_label: label
+  })
+  window.gtag('event', 'search', {
+    event_category: 'engagement',
+    event_label: label
+  })
 }
 
 export default withRouter(Search)
