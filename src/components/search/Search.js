@@ -103,10 +103,6 @@ class Search extends Component {
     }
 
     try {
-      console.log('event', 'event', 'postcode', {
-        event_category: 'search',
-        event_label: search.toUpperCase()
-      })
       window.gtag('event', 'postcode-search', {
         event_category: 'engagement',
         event_label: search.toUpperCase()

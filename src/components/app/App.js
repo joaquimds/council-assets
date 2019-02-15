@@ -10,7 +10,6 @@ import MainRouter from '../main-router/MainRouter'
 const App = () => {
   const history = createBrowserHistory()
   history.listen((location) => {
-    console.log('history update', location.pathname)
     window.gtag('config', 'UA-71078284-6', {
       'page_title': document.title,
       'page_path': location.pathname
