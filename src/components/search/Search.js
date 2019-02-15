@@ -103,6 +103,15 @@ class Search extends Component {
     }
 
     try {
+      console.log('event', 'event', 'postcode', {
+        event_category: 'search',
+        event_label: search.toUpperCase()
+      })
+      window.gtag('event', 'postcode-search', {
+        event_category: 'engagement',
+        event_label: search.toUpperCase()
+      })
+
       search = await this.lookup(search)
       this.navigate(search)
     } catch (e) {
@@ -131,7 +140,7 @@ class Search extends Component {
     return (
       <form className='search' onSubmit={e => this.onSubmit(e)} ref={this.searchRef}>
         <label htmlFor='search'>{this.props.small ? 'Council / Postcode' : 'Search for a council or postcode'}</label>
-        <input id='search' type='text' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
+        <input id='search' type='text' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()}/>
         {this.renderSuggestions()}
         <small>{error}</small>
       </form>

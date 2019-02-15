@@ -76,6 +76,7 @@ class Council extends Component {
 
   renderSummary (firstYear, response) {
     const hasSummary = response.match(/full|partial/i)
+    const hasTransactions = !response.match(/partial.*(transaction|transataction)/i)
     const sales = this.getSalesForCurrentYear()
     const stats = { count: sales.length, total: 0 }
     for (const sale of sales) {
@@ -93,6 +94,11 @@ class Council extends Component {
 
     const { name } = this.props.council
 
+    let summaryCopy = 'space' + (stats.count === 1 ? '' : 's')
+    if (hasTransactions) {
+      summaryCopy = summaryCopy + ' for' + (stats.moreThan ? ' more than' : '')
+    }
+
     return (
       <div className='summary'>
         {hasSummary ? (
@@ -103,9 +109,8 @@ class Council extends Component {
         {hasSummary ? (
           <div className='summary__stats'>
             <span className='summary__stat'>{stats.count}</span>
-            <span
-              className='summary__label'>space{stats.count === 1 ? '' : 's'} for{stats.moreThan ? ' more than' : ''}</span>
-            <span className='summary__stat'>{formatCurrency(stats.total)}</span>
+            <span className='summary__label'>{summaryCopy}</span>
+            {hasTransactions ? <span key='stat' className='summary__stat'>{formatCurrency(stats.total)}</span> : ''}
             <span className='summary__label'>{selectedYear === ALL_YEARS ? 'since' : 'in'}</span>
             <span className='summary__stat'>{yearLabel}</span>
           </div>
@@ -220,11 +225,13 @@ export const getResponseCopy = (response) => {
     case 'full':
       return 'This council provided everything requested in the FOI.'
     case 'partial - no transaction info':
+    case 'partial - no transataction info':
       return 'This council did not provide either sale prices and/or who the asset was sold or transferred to.'
     case 'partial - no post code':
     case 'partial - no post codes':
       return 'This council did not provide post code data for each asset.'
     case 'partial - no post code or transaction info':
+    case 'partial - no post code or transataction info':
       return 'This council did not provide either sale prices and or/who the asset was sold or transferred to, and did not provide post code information.'
     case 'poor quality':
       return 'The quality of the council\'s response was so poor the information could not be meaningfully interpreted, and it has not responded to requests for clarification.'

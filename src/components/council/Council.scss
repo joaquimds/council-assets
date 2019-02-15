@@ -67,11 +67,14 @@
   @media(min-width: $desktop-min-width) {
     align-items: baseline;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   .summary__label {
     flex-shrink: 0;
+  }
+
+  > * {
     margin: 0 0.75rem 0.5rem 0.75rem;
   }
 }

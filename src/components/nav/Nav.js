@@ -42,11 +42,22 @@ class Nav extends Component {
       </li>,
       <li className='nav__link' key='/about'>
         <Link to='/about'>About</Link>
+      </li>,
+      <li className='nav__link' key='/more-info'>
+        <a className='nav__link' href='#'>Have more info on sales?</a>
+      </li>,
+      <li className='nav__link' key='/locality'>
+        <a className='nav__link' href='https://locality.org.uk/'>Know a space under threat?</a>
       </li>
     ]
 
     return (
       <nav className='nav'>
+        <div className='nav__logo'>
+          <a href='https://www.thebureauinvestigates.com' title='The Bureau of Investigative Journalism'>
+            <img src='/icons/tbij.jpg' alt='The Bureau of Investigative Journalism' />
+          </a>
+        </div>
         <div className='nav__search'>
           <Search small/>
         </div>

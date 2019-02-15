@@ -2,9 +2,13 @@
 
 .splash {
   background-color: $dark;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+  position: relative;
 }
 
 .splash__copy {
@@ -12,15 +16,24 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
-  overflow-y: hidden;
   margin: auto;
   max-width: 700px;
-  padding: 1rem;
+
+  @media(min-width: $tablet-min-width) {
+    justify-content: center;
+  }
+
+  p,a {
+    color: white;
+    font-family: PT Mono, monospace;
+    font-size: 1rem;
+    line-height: 2rem;
+    margin-top: 0;
+  }
 }
 
 .splash__intro {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   h1 {
     color: $red;
@@ -32,17 +45,25 @@
     margin: 0 0 0.5rem 0;
     text-transform: uppercase;
 
-    @media(min-width: $desktop-min-width) {
+    @media(min-width: $tablet-min-width) {
       font-size: 5rem;
       line-height: 6rem;
     }
   }
+}
 
-  p {
-    color: white;
-    font-family: PT Mono, monospace;
-    font-size: 1rem;
-    line-height: 2rem;
-    margin-top: 0;
+.splash__search {
+  padding-bottom: 1rem;
+}
+
+.splash__logo {
+  @media(min-width: $tablet-min-width) {
+    left: 1rem;
+    position: absolute;
+    top: 1rem;
+  }
+
+  img {
+    width: 200px;
   }
 }
