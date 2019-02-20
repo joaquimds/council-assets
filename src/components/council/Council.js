@@ -44,6 +44,12 @@ class Council extends Component {
     return filterPlaces(data.sales, { selectedYear, search })
   }
 
+  onSelectNeighbour (e) {
+    const name = e.target.value
+    const encoded = encodeCouncil(name)
+    this.props.history.push('/' + encoded)
+  }
+
   render () {
     const { filter: { selectedYear }, council: { name, data } } = this.props
 
@@ -56,17 +62,27 @@ class Council extends Component {
     }
 
     const firstYear = data.yearOptions.length === 1 ? '2015' : data.yearOptions[0]
+    const neighbours = data.neighbours.map(n => n.name).sort()
+    neighbours.unshift(name)
     return (
       <div className='council'>
-        <div className='council__results'>
-          <p>Results for '{name}' in</p>
-          <select value={selectedYear} onChange={e => this.onChangeYear(e)}>
-            {data.yearOptions.map(year => <option key={year}>{year}</option>)}
-          </select>
+        <div className='council__nav'>
+          <div className='council__results'>
+            <p>Results for '{name}' in</p>
+            <select value={selectedYear} onChange={e => this.onChangeYear(e)}>
+              {data.yearOptions.map(year => <option key={year}>{year}</option>)}
+            </select>
+          </div>
+          <div className='council__neighbours'>
+            <p>Neighbouring councils:</p>
+            <select value={name} onChange={e => this.onSelectNeighbour(e)}>
+              {neighbours.map(n => <option key={n}>{n}</option>)}
+            </select>
+          </div>
         </div>
         {this.renderSummary(firstYear, data.response)}
         <div className='council__map'>
-          <Map places={data.sales}/>
+          <Map places={data.sales} />
         </div>
         {this.renderFilters()}
         {this.renderList()}
@@ -103,8 +119,8 @@ class Council extends Component {
       <div className='summary'>
         {hasSummary ? (
           <span className='summary__row summary__label'>
-          {name} Council {selectedYear === ALL_YEARS ? 'have' : ''} sold
-        </span>
+            {name} Council {selectedYear === ALL_YEARS ? 'have' : ''} sold
+          </span>
         ) : ''}
         {hasSummary ? (
           <div className='summary__stats'>
@@ -117,8 +133,8 @@ class Council extends Component {
         ) : ''}
         <span className='summary__row summary__label'>{getResponseCopy(response)}</span>
         <div className='summary__share-buttons'>
-          <button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.'/></button>
-          <button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.'/></button>
+          <button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button>
+          <button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.' /></button>
         </div>
       </div>
     )
@@ -135,7 +151,7 @@ class Council extends Component {
       <div className='filters'>
         <div className='filters__filter filters__search'>
           <label htmlFor='search'>Filter</label>
-          <input id='search' type='text' value={search} onChange={e => this.onChangeFilter(e)}/>
+          <input id='search' type='text' value={search} onChange={e => this.onChangeFilter(e)} />
         </div>
         <div className='filters__group'>
           <div className='filters__filter filters__sort'>
@@ -149,7 +165,7 @@ class Council extends Component {
           </div>
           <div className='filters__filter filters__direction'>
             <select id='direction' value={sort.direction}
-                    onChange={(e) => this.onChangeSort({ direction: e.target.value })}>
+              onChange={(e) => this.onChangeSort({ direction: e.target.value })}>
               <option value={1}>Ascending</option>
               <option value={-1}>Descending</option>
             </select>
@@ -172,8 +188,8 @@ class Council extends Component {
       <ul className='places'>
         {sorted.map(place => (
           <li key={place.id} className={'places__place' + (focusedPlace === place.id ? ' places__place--focused' : '')}
-              onMouseEnter={() => this.props.focusPlace(place.id)}
-              onMouseLeave={() => this.props.focusPlace(null)}>
+            onMouseEnter={() => this.props.focusPlace(place.id)}
+            onMouseLeave={() => this.props.focusPlace(null)}>
             <div className='place__details'>
               <div className='place__detail-row'>
                 <div className='place__detail'>

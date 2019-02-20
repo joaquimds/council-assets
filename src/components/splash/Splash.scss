@@ -17,7 +17,7 @@
   flex-direction: column;
   height: 100%;
   margin: auto;
-  max-width: 700px;
+  max-width: $desktop-min-width;
 
   @media(min-width: $tablet-min-width) {
     justify-content: center;

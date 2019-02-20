@@ -8,7 +8,7 @@ import Place from '../place/Place'
 import Map from '../map/Map'
 import MainColumns from '../main-columns/MainColumns'
 
-class CouncilSelector extends Component {
+class CouncilWrapper extends Component {
   componentDidMount () {
     this.ensureData()
   }
@@ -68,7 +68,7 @@ class CouncilSelector extends Component {
       return <Place place={place} />
     }
     const council = this.getCouncilData()
-    return <Council council={council} />
+    return <Council council={council} history={this.props.history} />
   }
 }
 
@@ -78,6 +78,6 @@ const mapDispatchToProps = (dispatch) => ({
   loadData: (council) => dispatch(loadData(council))
 })
 
-const CouncilRouterContainer = connect(mapStateToProps, mapDispatchToProps)(CouncilSelector)
+const CouncilContainer = connect(mapStateToProps, mapDispatchToProps)(CouncilWrapper)
 
-export default CouncilRouterContainer
+export default CouncilContainer

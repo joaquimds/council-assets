@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import CouncilSelector from '../council-selector/CouncilSelector'
+import CouncilContainer from '../council-container/CouncilContainer'
 import About from '../about/About'
 import Nav from '../nav/Nav'
 
@@ -13,8 +13,8 @@ const MainRouter = () => {
       <Nav />
       <Switch>
         <Route path='/about' component={About} />
-        <Route path='/:council' exact component={CouncilSelector} />
-        <Route path='/:council/:place' component={CouncilSelector} />
+        <Route path='/:council' exact component={CouncilContainer} />
+        <Route path='/:council/:place' component={CouncilContainer} />
       </Switch>
     </div>
   )

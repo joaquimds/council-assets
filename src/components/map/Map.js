@@ -60,7 +60,7 @@ class Map extends Component {
       marker.addListener('click', () => this.goToPlace(sale))
       return marker
     })
-    this.panToMarkers()
+    this.panToMarkers(placesWithLocation)
   }
 
   updateFocusedMarker () {
@@ -76,8 +76,7 @@ class Map extends Component {
     this.props.history.push(`/${council}/${sale.id}`)
   }
 
-  panToMarkers () {
-    const { places } = this.props
+  panToMarkers (places) {
     if (!places || !places.length) {
       return
     }

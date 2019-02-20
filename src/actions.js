@@ -10,7 +10,7 @@ export const loadAllData = () => {
 
     for (const council of json) {
       const { sales, yearOptions } = processSales(council.Sales, council.name)
-      councils[council.name] = { sales, response: council.response, yearOptions }
+      councils[council.name] = { ...council, sales, yearOptions }
     }
     dispatch({ type: ALL_DATA_LOADED, councils })
   }
@@ -24,7 +24,7 @@ export const loadData = (council) => {
 
     const { sales, yearOptions } = processSales(json.sales, council)
 
-    dispatch({ type: DATA_LOADED, council, data: { sales, response: json.response, yearOptions } })
+    dispatch({ type: DATA_LOADED, council, data: { ...json, sales, yearOptions } })
   }
 }
 
