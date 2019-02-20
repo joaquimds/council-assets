@@ -137,7 +137,7 @@ class Search extends Component {
     return (
       <form className='search' onSubmit={e => this.onSubmit(e)} ref={this.searchRef}>
         <label htmlFor='search'>{this.props.small ? 'Council / Postcode' : 'Search for a council or postcode'}</label>
-        <input id='search' type='text' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()}/>
+        <input id='search' type='text' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
         {this.renderSuggestions()}
         <small>{error}</small>
       </form>

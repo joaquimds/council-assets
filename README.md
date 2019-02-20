@@ -12,6 +12,11 @@ or live site (e.g. `https://councilassets.joaquimdsouza.com`)
 - `npm install`
 - `npm start` 
 
+## Deployment
+
+- Run `npm run build` to build the static assets.
+- Serve these using a web server, for example `nginx`.
+
 ## Available Scripts
 
 In the project directory, you can run:

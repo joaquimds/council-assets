@@ -14,7 +14,6 @@ class Nav extends Component {
   componentDidMount () {
     this.clickListener = (e) => this.handleClick(e)
     document.addEventListener('mousedown', this.clickListener, false)
-
   }
 
   componentWillUnmount () {
@@ -59,7 +58,7 @@ class Nav extends Component {
           </a>
         </div>
         <div className='nav__search'>
-          <Search small/>
+          <Search small />
         </div>
         <ul className='nav__links'>
           {links}

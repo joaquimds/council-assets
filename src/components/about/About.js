@@ -3,11 +3,11 @@ import React from 'react'
 import './About.scss'
 
 const About = () => (
-  <div className="about">
+  <div className='about'>
     <div className='about__container'>
       <div className='about__content'>
-        <h1 className="about__title">About</h1>
-        <div className="about__copy">
+        <h1 className='about__title'>About</h1>
+        <div className='about__copy'>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae mauris lorem. Ut condimentum ac elit eu
             ultrices. Nullam luctus convallis cursus. Fusce lorem ipsum, dapibus ut risus quis, ultrices imperdiet

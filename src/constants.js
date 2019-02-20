@@ -359,4 +359,3 @@ export const LOCAL_AUTHORITIES = [
   'Wyre Forest',
   'York'
 ]
-

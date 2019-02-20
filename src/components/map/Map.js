@@ -116,7 +116,7 @@ class Map extends Component {
   render () {
     return (
       <div className='map'>
-        <div ref={this.mapRef} className='map__container'/>
+        <div ref={this.mapRef} className='map__container' />
       </div>
     )
   }
@@ -130,4 +130,3 @@ const mapDispatchToProps = (dispatch) => ({
 const MapContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(Map))
 
 export default MapContainer
-

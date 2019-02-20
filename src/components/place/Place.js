@@ -18,7 +18,7 @@ const Place = (props) => {
   return (
     <div className='place'>
       <Link href='#' className='back' to={'/' + encodeCouncil(place.council)}>
-        <img src='/icons/back.svg' alt='Back.'/>
+        <img src='/icons/back.svg' alt='Back.' />
       </Link>
       <div className='place__details'>
         {place.salePrice !== null ? (
@@ -65,7 +65,7 @@ const Place = (props) => {
         ) : ''}
       </div>
       <div className='council__map'>
-        <Map places={[place]}/>
+        <Map places={[place]} />
       </div>
     </div>
   )
