@@ -54,7 +54,7 @@ class Nav extends Component {
       <nav className='nav'>
         <div className='nav__logo'>
           <a href='https://www.thebureauinvestigates.com' target='_blank' title='The Bureau of Investigative Journalism'>
-            <img src='/icons/tbij.jpg' alt='The Bureau of Investigative Journalism' />
+            <img src='/icons/tbij.png' alt='The Bureau of Investigative Journalism' />
           </a>
         </div>
         <div className='nav__search'>

@@ -2,7 +2,7 @@
 
 .nav {
   align-items: center;
-  background-color: #2b2a28;
+  background-color: $dark;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -94,7 +94,7 @@
 }
 
 .nav__dropdown {
-  background-color: #2b2a28;
+  background-color: $dark;
   left: 0;
   list-style: none;
   margin: 0;

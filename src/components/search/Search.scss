@@ -26,6 +26,12 @@
     padding: 0.5rem;
     width: 100%;
   }
+
+  input::placeholder {
+    color: white;
+    font-size: 1.2em;
+    font-style: italic;
+  }
 }
 
 small {
@@ -33,9 +39,11 @@ small {
   position: absolute;
   margin-top: 0.25rem;
   top: 100%;
+  z-index: 2;
 }
 
 .search__suggestions {
+  z-index: 4;
   left: 0;
   list-style: none;
   margin: 0;

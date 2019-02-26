@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .about {
-  background-color: #2b2a28;
+  background-color: $dark;
   min-height: 100%;
   width: 100%;
 }
@@ -34,4 +34,15 @@
   font-size: 1rem;
   line-height: 2rem;
   margin-top: 0;
+}
+
+.about__logo {
+  @media(min-width: $tablet-min-width) {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  img {
+    width: 150px;
+  }
 }

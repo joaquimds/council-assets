@@ -74,7 +74,8 @@ class Search extends Component {
   }
 
   navigate (council) {
-    this.setState({ search: council, focus: false })
+    // remove the error if search is successful
+    this.setState({ search: council, focus: false, error: '' })
     const param = encodeCouncil(council)
     this.props.history.push(`/${param}`)
   }
@@ -112,7 +113,7 @@ class Search extends Component {
       search = await this.lookup(search)
       this.navigate(search)
     } catch (e) {
-      this.setState({ error: 'We couldn\'t find this postcode.' })
+      this.setState({ error: 'We couldn\'t find this postcode' })
     }
   }
 
@@ -136,7 +137,7 @@ class Search extends Component {
     const { error, search } = this.state
     return (
       <form className='search' onSubmit={e => this.onSubmit(e)} ref={this.searchRef}>
-        <input id='search' type='text' placeholder='Council / Postcode' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
+        <input id='search' type='text' autocomplete='off' placeholder='Council / Postcode' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
         {this.renderSuggestions()}
         <small>{error}</small>
       </form>

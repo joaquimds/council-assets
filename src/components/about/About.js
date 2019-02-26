@@ -54,6 +54,11 @@ const About = () => (
             blandit.
           </p>
         </div>
+        <div className='about__logo'>
+          <a href='https://www.farnearer.org' target='_blank' title='Far Nearer'>
+            <img src='/icons/farnearer.png' alt='Far Nearer.' />
+          </a>
+        </div>
       </div>
     </div>
   </div>
