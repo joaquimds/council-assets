@@ -103,7 +103,7 @@ class Search extends Component {
     }
 
     if (!isPostcode(search)) {
-      this.setState({ error: 'We couldn\'t find this postcode or county.' })
+      this.setState({ error: 'We couldn\'t find this postcode or council' })
       return
     }
 
@@ -136,8 +136,7 @@ class Search extends Component {
     const { error, search } = this.state
     return (
       <form className='search' onSubmit={e => this.onSubmit(e)} ref={this.searchRef}>
-        <label htmlFor='search'>{this.props.small ? 'Council / Postcode' : 'Search for a council or postcode'}</label>
-        <input id='search' type='text' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
+        <input id='search' type='text' placeholder='Council / Postcode' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
         {this.renderSuggestions()}
         <small>{error}</small>
       </form>
