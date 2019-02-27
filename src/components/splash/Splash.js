@@ -18,12 +18,15 @@ class Splash extends Component {
         </div>
         <div className='splash__copy'>
           <div className='splash__intro'>
-            <h1>Our public spaces are being sold</h1>
-            <p>Councils across the country are being forced to sell assets to pay for our services.</p>
-            <p>See what your council has sold, or <Link to='/about'>read more</Link>.</p>
+            <h1>Sold From Under You</h1>
+            <p>Libraries, playing fields and community centres are being lost to the local council funding crisis.</p>
+            <p>See what your council has sold.</p>
           </div>
           <div className='splash__search'>
             <Search />
+          </div>
+          <div className='splash__intro'>
+            <p><Link to='/about'>Read about the project</Link>.</p>
           </div>
         </div>
       </div>

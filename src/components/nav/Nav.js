@@ -43,10 +43,10 @@ class Nav extends Component {
         <Link to='/about'>About</Link>
       </li>,
       <li className='nav__link' key='/more-info'>
-        <a className='nav__link' href='#' target='_blank'>Have info on sales?</a>
+        <a className='nav__link' href='https://docs.google.com/forms/d/10AIYh4hF-qJrp504qUl7oNfV2RrwY5AsxjDdrVs6Utc' target='_blank'>Have info on sales?</a>
       </li>,
       <li className='nav__link' key='/locality'>
-        <a className='nav__link' href='https://locality.org.uk/' target='_blank'>Know a space under threat?</a>
+        <a className='nav__link' href='https://locality.org.uk/policy-campaigns/save-our-spaces/' target='_blank'>Know a space under threat?</a>
       </li>
     ]
 

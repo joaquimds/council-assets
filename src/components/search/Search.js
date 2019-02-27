@@ -137,7 +137,7 @@ class Search extends Component {
     const { error, search } = this.state
     return (
       <form className='search' onSubmit={e => this.onSubmit(e)} ref={this.searchRef}>
-        <input id='search' type='text' autocomplete='off' placeholder='Council / Postcode' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
+        <input id='search' type='text' autoComplete='off' placeholder='Council / Postcode' onChange={e => this.onChange(e)} value={search} onFocus={() => this.onFocus()} />
         {this.renderSuggestions()}
         <small>{error}</small>
       </form>
