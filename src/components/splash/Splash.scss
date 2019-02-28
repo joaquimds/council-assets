@@ -57,13 +57,12 @@
 }
 
 .splash__logo {
+  width: 100px;
+
   @media(min-width: $tablet-min-width) {
+    width: 200px;
     left: 1rem;
     position: absolute;
     top: 1rem;
-  }
-
-  img {
-    width: 100px;
   }
 }

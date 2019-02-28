@@ -17,6 +17,14 @@
       gtag('js', new Date());
       gtag('config', '%REACT_APP_GOOGLE_ANALYTICS_PROPERTY%');
     </script>
+    <script language="javascript" type="text/javascript">
+      var url = window.location.href
+      var urlArray = url.split("/")
+      var council = urlArray[urlArray.length-1].replace("_", " ")
+      getHref = function() {
+        window.open('https://twitter.com/intent/tweet?&hashtags=soldfromunderyou&text=See%20what%20' + council + '%20has%20sold&url=' + url, '_blank')
+      }
+    </script>
 </head>
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>

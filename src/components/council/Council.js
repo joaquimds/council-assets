@@ -133,7 +133,7 @@ class Council extends Component {
         ) : ''}
         <span className='summary__row summary__label'>{getResponseCopy(response)}</span>
         <div className='summary__share-buttons'>
-          <a class='twitter-share-button' href='https://twitter.com/intent/tweet?text=See%20what%20your%20council%20has%20sold&url=https://concil-sell-off.thebureauinvestigates.com&hashtags=soldfromunderyou' target='_blank' title='Share on Twitter.'><button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button></a>
+          <a class='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.'><button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button></a>
           <a class='fb-xfbml-parse-ignore' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftbij.com%2F&amp;src=sdkpreparse' target='_blank' title='Share on Facebook.'><button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.' /></button></a>
         </div>
       </div>

@@ -26,7 +26,7 @@ const About = () => (
           </p>
           <p>
             We hope this map, created in conjunction with journalist Hazel Sheffield and
-            the <a href='https://www.farnearer.org'>Far Nearer</a> project,
+            the <a href='https://www.farnearer.org' target='_blank'>Far Nearer</a> project,
             will increase transparency and accountability around the sale of public spaces and help arm people with the information they need
             in <a href='https://locality.org.uk/policy-campaigns/save-our-spaces/' target='_blank'>the fight to prevent more being sold</a> in the future.
           </p>
