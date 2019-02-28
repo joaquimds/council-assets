@@ -44,7 +44,7 @@ const About = () => (
           <p>
             As well as selling community assets, councils are also investing in commercial property, as
             our <a href='https://www.thebureauinvestigates.com/stories/2018-12-04/councils-borrow-billions-to-buy-real-estate' target='_blank'>previous investigation</a> revealed
-            last year. The data on what councils are buying in not included in this map but can be found via
+            last year. The data on what councils are buying is not included in this map but can be found via
             the <a href='https://docs.google.com/document/d/1YGTz5AHjd7Tw-JA455HNZcUkTK0j0AKucHnYTJtTt6w' target='_blank'>reporting recipe</a> for that project.
           </p>
           <p>
