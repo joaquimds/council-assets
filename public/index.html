@@ -18,10 +18,10 @@
       gtag('config', '%REACT_APP_GOOGLE_ANALYTICS_PROPERTY%');
     </script>
     <script language="javascript" type="text/javascript">
-      var url = window.location.href
-      var urlArray = url.split("/")
-      var council = urlArray[urlArray.length-1].replace(/_/g, " ")
       getHref = function() {
+        var url = window.location.href
+        var urlArray = url.split("/")
+        var council = urlArray[urlArray.length-1].replace(/_/g, " ")
         window.open('https://twitter.com/intent/tweet?&text=Public%20spaces%20are%20being%20%23SoldFromUnderYou%20as%20councils%20struggle%20to%20stay%20afloat%2C%20%40bureaulocal%20found.%20See%20what%27s%20been%20lost%20in%20' + council + '%3A&url=' + url, '_blank')
       }
     </script>
