@@ -28,7 +28,7 @@ const About = () => (
             We hope this map, created in conjunction with journalist Hazel Sheffield and
             the <a href='https://www.farnearer.org'>Far Nearer</a> project,
             will increase transparency and accountability around the sale of public spaces and help arm people with the information they need
-            in <a href='https://locality.org.uk/policy-campaigns/save-our-spaces/'>the fight to prevent more being sold</a> in the future.
+            in <a href='https://locality.org.uk/policy-campaigns/save-our-spaces/' target='_blank'>the fight to prevent more being sold</a> in the future.
           </p>
           <h2>The data</h2>
           <p>
@@ -38,22 +38,22 @@ const About = () => (
           </p>
           <p>
             You can access the raw data and guide for this investigation via
-            our <a href='https://docs.google.com/document/d/1CjDSTvo_8WaIp3BCBRI5RTA0T8pmHw2ZSkbJSTBHxA4'>reporting recipe</a>.
-            And you can read the stories that come out of this project <a href='https://tbij.com/local'>here</a>.
+            our <a href='https://docs.google.com/document/d/1CjDSTvo_8WaIp3BCBRI5RTA0T8pmHw2ZSkbJSTBHxA4' target='_blank'>reporting recipe</a>.
+            And you can read the stories that come out of this project <a href='https://tbij.com/local' target='_blank'>here</a>.
           </p>
           <p>
             As well as selling community assets, councils are also investing in commercial property, as
-            our <a href='https://www.thebureauinvestigates.com/stories/2018-12-04/councils-borrow-billions-to-buy-real-estate'>previous investigation</a> revealed
+            our <a href='https://www.thebureauinvestigates.com/stories/2018-12-04/councils-borrow-billions-to-buy-real-estate' target='_blank'>previous investigation</a> revealed
             last year. The data on what councils are buying in not included in this map but can be found via
-            the <a href='https://docs.google.com/document/d/1YGTz5AHjd7Tw-JA455HNZcUkTK0j0AKucHnYTJtTt6w'>reporting recipe</a> for that project.
+            the <a href='https://docs.google.com/document/d/1YGTz5AHjd7Tw-JA455HNZcUkTK0j0AKucHnYTJtTt6w' target='_blank'>reporting recipe</a> for that project.
           </p>
           <p>
             If you have any questions about the data, or spot any significant errors, please contact us
-            using <a href='https://docs.google.com/forms/d/10AIYh4hF-qJrp504qUl7oNfV2RrwY5AsxjDdrVs6Utc'>this form</a>.
+            using <a href='https://docs.google.com/forms/d/10AIYh4hF-qJrp504qUl7oNfV2RrwY5AsxjDdrVs6Utc' target='_blank'>this form</a>.
           </p>
           <h2>About The Bureau of Investigative Journalism</h2>
           <p>
-            <a href='https://www.thebureauinvestigates.com'>The Bureau of Investigative Journalism</a> is
+            <a href='https://www.thebureauinvestigates.com' target='_blank' title='The Bureau of Investigative Journalism'>The Bureau of Investigative Journalism</a> is
             an independent, not-for-profit organisation that holds power to account.
             We tackle big subjects through deep reporting that uncovers the truth. We tell the stories that matter.
           </p>
@@ -62,27 +62,27 @@ const About = () => (
             Through fact-based, unbiased reporting, we expose systemic wrongs, counter misinformation and spark change.
           </p>
           <p>
-          This resource was created by our <a href='https://tbij.com/local'>Bureau Local</a> team, a collaborative,
+          This resource was created by our <a href='https://tbij.com/local' target='_blank'>Bureau Local</a> team, a collaborative,
           investigative network across the UK, whose more than 900 members include regional and national news outlets,
           local reporters, hyperlocal bloggers, technologists, community-minded citizens and specialist contributors.
           </p>
           <p>
-            The Bureau would like to thank <a href='https://outlandish.com'>Outlandish</a>,
+            The Bureau would like to thank <a href='https://outlandish.com' target='_blank'>Outlandish</a>,
             Charles Boutaud and Joaquim d’Souza for their work on this project.
           </p>
           <p>
             We rely on donations to fund our
-            work. <a href='https://www.thebureauinvestigates.com/support-us'>Click here to make a contribution</a>.
+            work. <a href='https://www.thebureauinvestigates.com/support-us' target='_blank'>Click here to make a contribution</a>.
           </p>
           <h2>About Far Nearer</h2>
           <p>
-            <a href='https://www.farnearer.org'>Far Nearer</a> is
+            <a href='https://www.farnearer.org' target='_blank'>Far Nearer</a> is
             an independent reporting project by Hazel Sheffield documenting local and community economies in the UK since 2016.
             It is supported by the Friends Provident Foundation.
           </p>
         </div>
         <div className='about__logo'>
-          <a href='https://www.farnearer.org' target='_blank' title='Far Nearer'>
+          <a href='https://www.farnearer.org' target='_blank'>
             <img src='/icons/farnearer.png' alt='Far Nearer.' />
           </a>
         </div>

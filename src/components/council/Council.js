@@ -74,7 +74,7 @@ class Council extends Component {
             </select>
           </div>
           <div className='council__neighbours'>
-            <p>Neighbouring councils:</p>
+            <p>See a neighbouring council</p>
             <select value={name} onChange={e => this.onSelectNeighbour(e)}>
               {neighbours.map(n => <option key={n}>{n}</option>)}
             </select>
@@ -239,27 +239,24 @@ class Council extends Component {
 export const getResponseCopy = (response) => {
   switch (response.toLowerCase()) {
     case 'full':
-      return 'This council provided everything requested in the FOI.'
+      return 'This council provided everything requested.'
     case 'partial - no transaction info':
     case 'partial - no transataction info':
-      return 'This council did not provide either sale prices and/or who the asset was sold or transferred to.'
     case 'partial - no post code':
     case 'partial - no post codes':
-      return 'This council did not provide post code data for each asset.'
     case 'partial - no post code or transaction info':
     case 'partial - no post code or transataction info':
-      return 'This council did not provide either sale prices and or/who the asset was sold or transferred to, and did not provide post code information.'
+      return 'This council only provided partial information. Details of sale price, and/or who the asset was sold or transferred to, and/or postcode information were incomplete.'
     case 'poor quality':
-      return 'The quality of the council\'s response was so poor the information could not be meaningfully interpreted, and it has not responded to requests for clarification.'
+      return 'The quality of the council\'s response was so poor that the information could not be meaningfully interpreted, and it has not responded to requests for clarification.'
     case 'no disposals':
-      return 'The council\'s response to the FOI was that it did not dispose of any assets during the period in question.'
+      return 'The council\'s responded to our request that it did not dispose of any assets during the period in question.'
     case 'awating internal review':
     case 'awaiting internal review':
-      return 'There were gaps or errors in this council\'s response and we have asked for the FOI to be reviewed internally.'
-    case 'new request sent':
-      return 'We have sent a revised FOI request due to a previous rejection or other issue and we are waiting for a response.'
+    case 'internal review requested due to delay':
+      return 'There were gaps or errors or delay in this council\'s response. We have asked for our request to be reviewed internally.'
     case 'refused':
-      return 'The council refused to provide any information'
+      return 'The council refused to provide any information.'
     default:
       return response
   }
