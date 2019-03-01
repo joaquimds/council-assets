@@ -43,17 +43,17 @@ class Nav extends Component {
         <Link to='/about'>About</Link>
       </li>,
       <li className='nav__link' key='/more-info'>
-        <a className='nav__link' href='https://docs.google.com/forms/d/10AIYh4hF-qJrp504qUl7oNfV2RrwY5AsxjDdrVs6Utc' target='_blank'>Have info on sales?</a>
+        <a className='nav__link' rel='noopener noreferrer' href='https://docs.google.com/forms/d/10AIYh4hF-qJrp504qUl7oNfV2RrwY5AsxjDdrVs6Utc' target='_blank'>Have info on sales?</a>
       </li>,
       <li className='nav__link' key='/locality'>
-        <a className='nav__link' href='https://locality.org.uk/policy-campaigns/save-our-spaces/' target='_blank'>Know a space under threat?</a>
+        <a className='nav__link' rel='noopener noreferrer' href='https://locality.org.uk/policy-campaigns/save-our-spaces/' target='_blank'>Know a space under threat?</a>
       </li>
     ]
 
     return (
       <nav className='nav'>
         <div className='nav__logo'>
-          <a href='https://www.thebureauinvestigates.com' target='_blank' title='The Bureau of Investigative Journalism'>
+          <a href='https://www.thebureauinvestigates.com' rel='noopener noreferrer' target='_blank' title='The Bureau of Investigative Journalism'>
             <img src='/icons/tbij.png' alt='The Bureau of Investigative Journalism' />
           </a>
         </div>

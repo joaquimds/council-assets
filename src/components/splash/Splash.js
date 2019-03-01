@@ -12,7 +12,7 @@ class Splash extends Component {
     return (
       <div className='splash'>
         <div className='splash__logo'>
-          <a href='https://www.thebureauinvestigates.com' target='_blank' title='The Bureau of Investigative Journalism'>
+          <a href='https://www.thebureauinvestigates.com' target='_blank' rel='noopener noreferrer' title='The Bureau of Investigative Journalism'>
             <img src='/icons/tbij.svg' alt='The Bureau of Investigative Journalism.' />
           </a>
         </div>

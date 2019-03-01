@@ -48,18 +48,17 @@
 
   p {
     margin: 0 0 0.25rem 0;
+    white-space: nowrap;
   }
 }
 
 .council__results {
-  align-items: center;
   color: $dark;
-  display: flex;
-  flex-direction: row;
-  margin: 1rem 0;
+  margin: 1rem 1rem 1rem 0;
 
   p {
-    margin-right: 0.25rem;
+    margin: 0 0 0.25rem 0;
+    white-space: nowrap;
   }
 }
 
@@ -67,7 +66,7 @@
   background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
-  margin: 0 0 1rem 0;
+  margin: 1rem 0;
   padding: 1rem 1rem 0 1rem;
 }
 
@@ -118,6 +117,10 @@
 
 .summary__response {
   margin-bottom: 0.5rem;
+
+  strong {
+    color: $red;
+  }
 }
 
 .summary__share-buttons {

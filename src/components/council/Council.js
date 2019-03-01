@@ -51,7 +51,7 @@ class Council extends Component {
   }
 
   render () {
-    const { filter: { selectedYear }, council: { name, data } } = this.props
+    const { council: { data } } = this.props
 
     if (!data || !data.sales) {
       return (
@@ -62,35 +62,22 @@ class Council extends Component {
     }
 
     const firstYear = data.yearOptions.length === 1 ? '2015' : data.yearOptions[0]
-    const neighbours = data.neighbours.map(n => n.name).sort()
-    neighbours.unshift(name)
+    const lastYear = data.yearOptions.length < 3 ? '2018' : data.yearOptions[data.yearOptions.length - 2]
+
     return (
       <div className='council'>
-        <div className='council__nav'>
-          <div className='council__results'>
-            <p>Results for '{name}' in</p>
-            <select value={selectedYear} onChange={e => this.onChangeYear(e)}>
-              {data.yearOptions.map(year => <option key={year}>{year}</option>)}
-            </select>
-          </div>
-          <div className='council__neighbours'>
-            <p>See a neighbouring council</p>
-            <select value={name} onChange={e => this.onSelectNeighbour(e)}>
-              {neighbours.map(n => <option key={n}>{n}</option>)}
-            </select>
-          </div>
-        </div>
-        {this.renderSummary(firstYear, data.response)}
+        {this.renderSummary(firstYear, lastYear, data.response)}
         <div className='council__map'>
           <Map places={data.sales} />
         </div>
+        {this.renderNav()}
         {this.renderFilters()}
         {this.renderList()}
       </div>
     )
   }
 
-  renderSummary (firstYear, response) {
+  renderSummary (firstYear, lastYear, response) {
     const hasSummary = response.match(/full|partial/i)
     const hasTransactions = !response.match(/partial.*(transaction|transataction)/i)
     const sales = this.getSalesForCurrentYear()
@@ -115,11 +102,14 @@ class Council extends Component {
       summaryCopy = summaryCopy + ' for' + (stats.moreThan ? ' more than' : '')
     }
 
+    let introCopy = selectedYear === ALL_YEARS ? `Between ${firstYear} and ${lastYear}` : `In ${selectedYear}`
+    introCopy += `, ${name} Council sold`
+
     return (
       <div className='summary'>
         {hasSummary ? (
           <span className='summary__row summary__label'>
-            {name} Council {selectedYear === ALL_YEARS ? 'have' : ''} sold
+            {introCopy}
           </span>
         ) : ''}
         {hasSummary ? (
@@ -127,14 +117,44 @@ class Council extends Component {
             <span className='summary__stat'>{stats.count}</span>
             <span className='summary__label'>{summaryCopy}</span>
             {hasTransactions ? <span key='stat' className='summary__stat'>{formatCurrency(stats.total)}</span> : ''}
-            <span className='summary__label'>{selectedYear === ALL_YEARS ? 'since' : 'in'}</span>
-            <span className='summary__stat'>{yearLabel}</span>
           </div>
         ) : ''}
-        <span className='summary__row summary__label'>{getResponseCopy(response)}</span>
+        <span className='summary__row summary__label summary__response'>{getResponseCopy(name, response)}</span>
         <div className='summary__share-buttons'>
-          <a class='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.'><button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button></a>
-          <a class='fb-xfbml-parse-ignore' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftbij.com%2F&amp;src=sdkpreparse' target='_blank' title='Share on Facebook.'><button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.' /></button></a>
+          <a class='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.' rel='noopener noreferrer'>
+            <button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button>
+          </a>
+          <a class='fb-xfbml-parse-ignore'
+            href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftbij.com%2F&amp;src=sdkpreparse'
+            target='_blank' title='Share on Facebook.' rel='noopener noreferrer'>
+            <button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.' /></button>
+          </a>
+        </div>
+      </div>
+    )
+  }
+
+  renderNav () {
+    const { filter: { selectedYear }, council: { name, data } } = this.props
+    const places = data.sales
+    const neighbours = data.neighbours.map(n => n.name).sort()
+    neighbours.unshift(name)
+
+    return (
+      <div className='council__nav'>
+        {!places || !places.length ? '' : (
+          <div className='council__results'>
+            <p>Results for '{name}' in</p>
+            <select value={selectedYear} onChange={e => this.onChangeYear(e)}>
+              {data.yearOptions.map(year => <option key={year}>{year}</option>)}
+            </select>
+          </div>
+        )}
+        <div className='council__neighbours'>
+          <p>See a neighbouring council</p>
+          <select value={name} onChange={e => this.onSelectNeighbour(e)}>
+            {neighbours.map(n => <option key={n}>{n}</option>)}
+          </select>
         </div>
       </div>
     )
@@ -236,7 +256,22 @@ class Council extends Component {
   }
 }
 
-export const getResponseCopy = (response) => {
+const getResponseCopy = (name, response) => {
+  const template = getResponseCopyTemplate(response)
+  if (template.indexOf('{name}') === -1) {
+    return template
+  }
+  const templateParts = template.split('{name}')
+  const copyParts = []
+  for (let i = 0; i < templateParts.length; ++i) {
+    copyParts.push(<span key={i}>{templateParts[i]}</span>)
+    copyParts.push(<strong key={i + '-name'}>{name}</strong>)
+  }
+  copyParts.pop()
+  return copyParts
+}
+
+const getResponseCopyTemplate = (response) => {
   switch (response.toLowerCase()) {
     case 'full':
       return 'This council provided everything requested.'
@@ -248,15 +283,15 @@ export const getResponseCopy = (response) => {
     case 'partial - no post code or transataction info':
       return 'This council only provided partial information. Details of sale price, and/or who the asset was sold or transferred to, and/or postcode information were incomplete.'
     case 'poor quality':
-      return 'The quality of the council\'s response was so poor that the information could not be meaningfully interpreted, and it has not responded to requests for clarification.'
+      return 'The quality of {name}\'s response was so poor that the information could not be meaningfully interpreted, and it has not responded to requests for clarification.'
     case 'no disposals':
-      return 'The council\'s responded to our request that it did not dispose of any assets during the period in question.'
+      return '{name} responded to our request that it did not dispose of any assets during the period in question.'
     case 'awating internal review':
     case 'awaiting internal review':
     case 'internal review requested due to delay':
-      return 'There were gaps or errors or delay in this council\'s response. We have asked for our request to be reviewed internally.'
+      return 'There were gaps or errors or delay in {name}\'s response. We have asked for our request to be reviewed internally.'
     case 'refused':
-      return 'The council refused to provide any information.'
+      return '{name} refused to provide any information.'
     default:
       return response
   }
