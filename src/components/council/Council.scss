@@ -15,7 +15,6 @@
 }
 
 .council__nav {
-  align-items: center;
   color: $dark;
   display: flex;
   flex-direction: column-reverse;
@@ -35,6 +34,7 @@
   }
 
   @media(min-width:$desktop-min-width) {
+    align-items: center;
     flex-direction: row;
   }
 }
