@@ -46,7 +46,7 @@ class Map extends Component {
     const placesWithLocation = places.filter(p => p.latitude && p.longitude)
     this.markers.forEach(marker => marker.setMap(null))
     this.markers = placesWithLocation.map(sale => {
-      const title = sale.name || sale.address
+      const title = [sale.name, sale.postcode].filter(Boolean).join('\n')
       const icon = (sale.id === focusedPlace) ? BLUE : RED
       const marker = new window.google.maps.Marker({
         title,

@@ -113,6 +113,10 @@
   font-family: PT Serif, serif;
   font-size: 1rem;
   letter-spacing: 1px;
+
+  strong {
+    color: $red;
+  }
 }
 
 .summary__response {

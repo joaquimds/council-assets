@@ -15,6 +15,7 @@ const Place = (props) => {
       </div>
     )
   }
+  const fullAddress = [place.address, place.postcode].filter(Boolean).join(', ')
   return (
     <div className='place'>
       <Link href='#' className='back' to={'/' + encodeCouncil(place.council)}>
@@ -33,10 +34,10 @@ const Place = (props) => {
             <span>{place.name}</span>
           </div>
         ) : ''}
-        {place.fullAddress && place.name !== place.fullAddress ? (
+        {fullAddress && place.name !== fullAddress ? (
           <div className='place__detail'>
             <label>address</label>
-            <span>{place.fullAddress}</span>
+            <span>{fullAddress}</span>
           </div>
         ) : ''}
         {place.type ? (

@@ -102,14 +102,18 @@ class Council extends Component {
       summaryCopy = summaryCopy + ' for' + (stats.moreThan ? ' more than' : '')
     }
 
-    let introCopy = selectedYear === ALL_YEARS ? `Between ${firstYear} and ${lastYear}` : `In ${selectedYear}`
-    introCopy += `, ${name} Council sold`
+    const introCopy = selectedYear === ALL_YEARS ? `Between ${firstYear} and ${lastYear}, ` : `In ${selectedYear}, `
+    const introParts = [
+      <span key={0}>{introCopy}</span>,
+      <strong key={1}>{name} Council </strong>,
+      <span key={2}>sold</span>
+    ]
 
     return (
       <div className='summary'>
         {hasSummary ? (
           <span className='summary__row summary__label'>
-            {introCopy}
+            {introParts}
           </span>
         ) : ''}
         {hasSummary ? (
@@ -121,10 +125,10 @@ class Council extends Component {
         ) : ''}
         <span className='summary__row summary__label summary__response'>{getResponseCopy(name, response)}</span>
         <div className='summary__share-buttons'>
-          <a class='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.' rel='noopener noreferrer'>
+          <a className='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.' rel='noopener noreferrer'>
             <button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button>
           </a>
-          <a class='fb-xfbml-parse-ignore'
+          <a className='fb-xfbml-parse-ignore'
             href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftbij.com%2F&amp;src=sdkpreparse'
             target='_blank' title='Share on Facebook.' rel='noopener noreferrer'>
             <button title='Share on Facebook.'><img src='/icons/facebook.svg' alt='Share on Facebook.' /></button>
