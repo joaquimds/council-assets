@@ -109,6 +109,10 @@ class Council extends Component {
       <span key={2}>sold</span>
     ]
 
+    const twitterShare = 'https://twitter.com/intent/tweet?&text=Public%20spaces%20are%20being%20%23' +
+      'SoldFromUnderYou%20as%20councils%20struggle%20to%20stay%20afloat%2C%20%40bureaulocal%20found.' +
+      '%20See%20what%27s%20been%20lost%20in%20' + name + '%3A&url=' + window.location.href
+
     return (
       <div className='summary'>
         {hasSummary ? (
@@ -125,7 +129,7 @@ class Council extends Component {
         ) : ''}
         <span className='summary__row summary__label summary__response'>{getResponseCopy(name, response)}</span>
         <div className='summary__share-buttons'>
-          <a className='twitter-share-button' href='javascript:getHref()' target='_blank' title='Share on Twitter.' rel='noopener noreferrer'>
+          <a className='twitter-share-button' href={twitterShare} target='_blank' title='Share on Twitter.' rel='noopener noreferrer'>
             <button title='Share on Twitter.'><img src='/icons/twitter.svg' alt='Share on Twitter.' /></button>
           </a>
           <a className='fb-xfbml-parse-ignore'
