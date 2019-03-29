@@ -21,7 +21,7 @@ class Splash extends Component {
             <h1>Sold From Under You</h1>
             <p>Libraries, playing fields and community centres are being lost to the local council funding crisis.</p>
             <p>
-              <a href='https://www.thebureauinvestigates.com/stories/2019-03-04/sold-from-under-you' rel='noopener noreferrer' target='_blank'>Read the investiation</a>.<br>
+              <a href='https://www.thebureauinvestigates.com/stories/2019-03-04/sold-from-under-you' rel='noopener noreferrer' target='_blank'>Read the investiation</a>.</br>
               See what your council has sold.
             </p>
           </div>
