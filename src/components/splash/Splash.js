@@ -20,10 +20,7 @@ class Splash extends Component {
           <div className='splash__intro'>
             <h1>Sold From Under You</h1>
             <p>Libraries, playing fields and community centres are being lost to the local council funding crisis.</p>
-            <p>
-              <a href='https://www.thebureauinvestigates.com/stories/2019-03-04/sold-from-under-you' rel='noopener noreferrer' target='_blank'>Read the investiation</a>.</br>
-              See what your council has sold.
-            </p>
+            <p><a href='https://www.thebureauinvestigates.com/stories/2019-03-04/sold-from-under-you' rel='noopener noreferrer' target='_blank'>Read the investiation</a>.<br>See what your council has sold.</p>
           </div>
           <div className='splash__search'>
             <Search />
